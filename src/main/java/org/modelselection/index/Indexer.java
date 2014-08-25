@@ -1,5 +1,5 @@
 package org.modelselection.index;
 
-public class Indexer {
+public interface Indexer {
 
 }

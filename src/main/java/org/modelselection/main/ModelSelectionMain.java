@@ -5,6 +5,7 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.modelselection.index.TwitterIndexer;
 
 /**
  * Created by Naveen Kumar on 8/24/14.
@@ -15,10 +16,15 @@ public class ModelSelectionMain {
     public static void main(String args[]) {
         CommandLineParser parser = new BasicParser();
         try {
-            // parse the command line arguments
-            Options options = new Options();
-            CommandLine line = parser.parse(options, args);
-        } catch (ParseException exp) {
+            String dataPath = "";
+            String indexPath = "";
+            TwitterIndexer twitterIndexer = new TwitterIndexer(dataPath);
+            if(twitterIndexer.generateIndex(indexPath)) {
+                System.out.println("Index Build Successfully!!");
+            } else {
+                System.err.println("Could n't build index");
+            }
+        } catch (Exception exp) {
             System.err.println("Parsing failed.  Reason: " + exp.getMessage());
         }
     }

@@ -1,14 +1,13 @@
 package org.modelselection.index;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 import org.apache.lucene.document.Document;
-
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +29,8 @@ public class TwitterIndexer implements Indexer {
             return false;
         }
         Directory indexDir = FSDirectory.open(new File(indexPath));
-        IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_47, null);
+        StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_47);
+        IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LUCENE_47, analyzer);
         indexWriterConfig.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         IndexWriter indexWriter = new IndexWriter(indexDir, indexWriterConfig);
         for(int fileNumber = 0; fileNumber < fileNames.length; fileNumber++ ) {
@@ -63,6 +63,5 @@ public class TwitterIndexer implements Indexer {
             return f.getName().substring(f.getName().length() - 3, f.getName().length());
         }
     }
-
 
 }

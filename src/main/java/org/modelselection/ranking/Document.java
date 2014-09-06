@@ -1,7 +1,7 @@
 package org.modelselection.ranking;
 
 /**
- * Created by nkumar on 8/24/14.
+ * Created by Naveen Kumar on 8/24/14.
  */
 public class Document implements Comparable<Document> {
 

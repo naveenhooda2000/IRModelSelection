@@ -6,6 +6,9 @@ import org.modelselection.ranking.DocumentSet;
 
 import java.util.List;
 
+/**
+ * Created by Naveen Kumar on 8/24/14.
+ */
 public class VectorSpaceModel implements RetrievalModel {
 
     @Override

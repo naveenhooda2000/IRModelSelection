@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Created by nkumar on 8/24/14.
+ * Created by Naveen Kumar on 8/24/14.
  */
 public class DocumentSet {
 

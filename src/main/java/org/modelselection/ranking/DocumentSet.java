@@ -10,9 +10,9 @@ import java.util.TreeSet;
  */
 public class DocumentSet {
 
-    public Set<Document> documents = new TreeSet<Document>();
+    private Set<Document> documents = new TreeSet<Document>();
 
-    void add(Document document) {
+    public void add(Document document) {
         documents.add(document);
     }
 

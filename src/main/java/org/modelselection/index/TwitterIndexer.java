@@ -34,6 +34,7 @@ public class TwitterIndexer implements Indexer {
         indexWriterConfig.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         IndexWriter indexWriter = new IndexWriter(indexDir, indexWriterConfig);
         for(int fileNumber = 0; fileNumber < fileNames.length; fileNumber++ ) {
+            System.out.println("Processing file "+fileNumber);
             TwitterDocumentIterator twitterDocumentIterator = new TwitterDocumentIterator(fileNames[fileNumber].toString());
             Document document = twitterDocumentIterator.next();
             while (document != null) {
@@ -41,6 +42,7 @@ public class TwitterIndexer implements Indexer {
                 document = twitterDocumentIterator.next();
             }
         }
+        indexWriter.commit();
         indexWriter.close();
         return true;
     }

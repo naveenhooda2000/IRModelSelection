@@ -6,6 +6,7 @@ import java.util.regex.*;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
+import org.apache.lucene.document.TextField;
 
 /**
  * Created by Naveen Kumar on 9/5/2014.
@@ -62,11 +63,11 @@ public class TwitterDocumentIterator implements DocumentIterator {
                         throw new Exception(MalInformedInput);
                     } else {
                         Document document = new Document();
-                        document.add(new StringField(TwitterIndexFieldConstants.ID, docNo, Field.Store.YES));
-                        document.add(new StringField(TwitterIndexFieldConstants.TITLE, title, Field.Store.NO));
-                        document.add(new StringField(TwitterIndexFieldConstants.TEXT, text, Field.Store.NO));
-                        document.add(new StringField(TwitterIndexFieldConstants.STATUS, status, Field.Store.NO));
-                        document.add(new StringField(TwitterIndexFieldConstants.TIME, time, Field.Store.NO));
+                        document.add(new TextField(TwitterIndexFieldConstants.ID, docNo, Field.Store.YES));
+                        document.add(new TextField(TwitterIndexFieldConstants.TITLE, title, Field.Store.YES));
+                        document.add(new TextField(TwitterIndexFieldConstants.TEXT, text, Field.Store.YES));
+                        document.add(new TextField(TwitterIndexFieldConstants.STATUS, status, Field.Store.YES));
+                        document.add(new TextField(TwitterIndexFieldConstants.TIME, time, Field.Store.YES));
                         return document;
                     }
                 } else if (docNoPattern.matcher(line).matches()) {

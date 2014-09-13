@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface RetrievalModel {
 
-    DocumentSet generateRanking(String indexPath, String query);
+    DocumentSet generateRanking(String indexPath, String queryid, String query);
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class VectorSpaceModel implements RetrievalModel {
 
     @Override
-    public DocumentSet generateRanking(String indexPath, String queryId, String query) {
+    public DocumentSet generateRanking(String indexPath, String queryId, String query,String querytime) {
         return null;
     }
 }

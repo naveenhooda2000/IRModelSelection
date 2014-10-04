@@ -26,6 +26,7 @@ public class TwitterIndexer implements Indexer {
     public boolean generateIndex(String indexPath) throws Exception {
         File[] fileNames = getXMLFiles(new File(dataPath));
         if (fileNames.length == 0) {
+            System.out.println("File lenght is zero");
             return false;
         }
         Directory indexDir = FSDirectory.open(new File(indexPath));
